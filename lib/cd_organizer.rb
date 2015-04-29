@@ -5,6 +5,10 @@ class Cd
     @artist = artist
   end
 
+  define_singleton_method(:clear) do
+    @@all_cds = []
+  end
+
   define_method(:name) do
     @name
   end
