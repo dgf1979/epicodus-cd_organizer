@@ -29,7 +29,6 @@ describe(Cd) do
     cd.save()
     cd = Cd.new('The White Album', 'The Beatles')
     cd.save()
-    binding.pry
     expect(Cd.all_artists()[2]).to(eq('The Beatles'))
 
   end

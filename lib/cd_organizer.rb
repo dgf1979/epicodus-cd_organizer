@@ -26,7 +26,11 @@ class Cd
   end
 
   define_singleton_method(:all_artists) do
-    []
+    artists = []
+    @@all_cds.each() do |cd|
+      artists.push(cd.artist())
+    end
+    artists
   end
 
 end
