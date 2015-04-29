@@ -19,4 +19,13 @@ describe("CD Organizer", {:type => :feature}) do
     expect(page).to have_content("Michael Jackson")
     expect(page).to have_content("Bad")
   end
+
+  it('search for titles by artist') do
+    visit('/cds/new')
+    fill_in('title', :with => 'Bad')
+    fill_in('artist', :with => 'Michael Jackson')
+    click_button('Add CD')
+    click_link('Michael Jackson')
+    expect(page).to have_content('Bad')
+  end
 end
