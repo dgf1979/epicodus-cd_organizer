@@ -1,4 +1,5 @@
 require('rspec')
+require('pry')
 require('cd_organizer')
 
 describe(Cd) do
@@ -19,5 +20,17 @@ describe(Cd) do
     cd.save()
     Cd.clear()
     expect(Cd.all()).to(eq([]))
+  end
+
+  it('returns a list of all artists') do
+    cd = Cd.new('Thriller', 'Michael Jackson')
+    cd.save()
+    cd = Cd.new('The Wall', 'Pink Floyd')
+    cd.save()
+    cd = Cd.new('The White Album', 'The Beatles')
+    cd.save()
+    binding.pry
+    expect(Cd.all_artists()[2]).to(eq('The Beatles'))
+
   end
 end

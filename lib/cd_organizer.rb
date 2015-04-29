@@ -25,4 +25,8 @@ class Cd
     @@all_cds
   end
 
+  define_singleton_method(:all_artists) do
+    []
+  end
+
 end
