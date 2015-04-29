@@ -28,4 +28,16 @@ describe("CD Organizer", {:type => :feature}) do
     first(:link, 'Michael Jackson').click
     expect(page).to have_content('Bad')
   end
+
+  it('list all artists as links to cd lists') do
+    #add a cd
+    visit('/cds/new')
+    fill_in('title', :with => 'The Wall')
+    fill_in('artist', :with => 'Pink Floyd')
+    click_button('Add CD')
+    #visist artists list and select an artist to view 
+    visit('cds/artists')
+    first(:link, 'Pink Floyd').click
+    expect(page).to have_content('The Wall')
+  end
 end

@@ -32,6 +32,6 @@ end
 
 get('/cds/:artist') do
   @artist = URI.decode(params.fetch('artist'))
-  @titles = Cd.titles_by(@artist)  
+  @titles = Cd.titles_by(@artist)
   erb(:cds_list_by_artist)
 end
