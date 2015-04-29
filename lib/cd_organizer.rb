@@ -36,7 +36,13 @@ class Cd
   end
 
   define_singleton_method(:titles_by) do |artist|
-    []
+    titles_by = []
+    @@all_cds.each() do |cd|
+      if cd.artist() == artist
+        titles_by.push(cd.name())
+      end
+    end
+    titles_by
   end
 
 end
