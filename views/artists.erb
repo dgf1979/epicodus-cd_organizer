@@ -1,0 +1,9 @@
+<h3>Artists in My Collection</h3>
+<ul>
+  <% @artists.each() do |artist| %>
+  <li><a href='/cds/<%= URI.encode(artist) %>'><%= artist %></a></li>
+  <% end %>
+</ul>
+<a href="/cds/new">Add New CD</a>
+<br />
+<a href='/'>Home</a>

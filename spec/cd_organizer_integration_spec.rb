@@ -35,8 +35,8 @@ describe("CD Organizer", {:type => :feature}) do
     fill_in('title', :with => 'The Wall')
     fill_in('artist', :with => 'Pink Floyd')
     click_button('Add CD')
-    #visist artists list and select an artist to view 
-    visit('cds/artists')
+    #visist artists list and select an artist to view
+    visit('/artists')
     first(:link, 'Pink Floyd').click
     expect(page).to have_content('The Wall')
   end

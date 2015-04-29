@@ -35,3 +35,8 @@ get('/cds/:artist') do
   @titles = Cd.titles_by(@artist)
   erb(:cds_list_by_artist)
 end
+
+get('/artists') do
+  @artists = Cd.all_artists()
+  erb(:artists)
+end
