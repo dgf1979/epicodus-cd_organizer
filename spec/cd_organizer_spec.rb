@@ -10,46 +10,47 @@ describe(Cd) do
   end
 
   it('stores and returns a cd to the collection') do
-    Cd.clear()
+    Organizer.clear()
     cd = Cd.new('Thriller', 'Michael Jackson')
-    cd.save()
-    expect(Cd.all()).to(eq([cd]))
+    Organizer.add_cd(cd)
+    #cd.save()
+    expect(Organizer.all()).to(eq([cd]))
   end
 
   it('clears the list of cds') do
     cd = Cd.new('Thriller', 'Michael Jackson')
-    cd.save()
-    Cd.clear()
-    expect(Cd.all()).to(eq([]))
+    Organizer.add_cd(cd)
+    Organizer.clear()
+    expect(Organizer.all()).to(eq([]))
   end
 
   it('returns a list of all artists') do
     cd = Cd.new('Thriller', 'Michael Jackson')
-    cd.save()
+    Organizer.add_cd(cd)
     cd = Cd.new('The Wall', 'Pink Floyd')
-    cd.save()
+    Organizer.add_cd(cd)
     cd = Cd.new('The White Album', 'The Beatles')
-    cd.save()
-    expect(Cd.all_artists()[2]).to(eq('The Beatles'))
+    Organizer.add_cd(cd)
+    expect(Organizer.all_artists()[2]).to(eq('The Beatles'))
   end
 
   it('does not return duplicate artists') do
-    Cd.clear()
+    Organizer.clear()
     cd = Cd.new('Thriller', 'Michael Jackson')
-    cd.save()
+    Organizer.add_cd(cd)
     cd = Cd.new('Bad', 'Michael Jackson')
-    cd.save()
-    expect(Cd.all_artists().length()).to(eq(1))
+    Organizer.add_cd(cd)
+    expect(Organizer.all_artists().length()).to(eq(1))
   end
 
   it('returns a list of titles by one artist (excluding duplicates)') do
-    Cd.clear()
+    Organizer.clear()
     cd = Cd.new('Thriller', 'Michael Jackson')
-    cd.save()
+    Organizer.add_cd(cd)
     cd = Cd.new('Bad', 'Michael Jackson')
-    cd.save()
-    expect(Cd.titles_by("Michael Jackson")[0]).to(eq('Thriller'))
-    expect(Cd.titles_by("Michael Jackson")[1]).to(eq('Bad'))
+    Organizer.add_cd(cd)
+    expect(Organizer.titles_by("Michael Jackson")[0]).to(eq('Thriller'))
+    expect(Organizer.titles_by("Michael Jackson")[1]).to(eq('Bad'))
   end
 
 end

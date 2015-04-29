@@ -20,23 +20,23 @@ post('/cds') do
   title = params.fetch('title')
   artist = params.fetch('artist')
   cd = Cd.new(title, artist)
-  cd.save()
-  @cds = Cd.all()
+  Organizer.add_cd(cd)
+  @cds = Organizer.all()
   erb(:cds)
 end
 
 get('/cds') do
-  @cds = Cd.all()
+  @cds = Organizer.all()
   erb(:cds)
 end
 
 get('/cds/:artist') do
   @artist = URI.decode(params.fetch('artist'))
-  @titles = Cd.titles_by(@artist)
+  @titles = Organizer.titles_by(@artist)
   erb(:cds_list_by_artist)
 end
 
 get('/artists') do
-  @artists = Cd.all_artists()
+  @artists = Organizer.all_artists()
   erb(:artists)
 end
