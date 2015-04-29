@@ -25,7 +25,7 @@ describe("CD Organizer", {:type => :feature}) do
     fill_in('title', :with => 'Bad')
     fill_in('artist', :with => 'Michael Jackson')
     click_button('Add CD')
-    click_link('Michael Jackson')
+    first(:link, 'Michael Jackson').click
     expect(page).to have_content('Bad')
   end
 end

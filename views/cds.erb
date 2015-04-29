@@ -1,6 +1,6 @@
 <ul>
   <% @cds.each() do |cd| %>
-  <li>title: <%= cd.name()%> artist: <%= cd.artist() %></li>
+  <li>title: <%= cd.name()%> artist: <a href='/cds/<%= URI.encode(cd.artist()) %>'><%= cd.artist() %></a></li>
   <% end %>
 </ul>
 <a href="/cds/new">Add CD</a>

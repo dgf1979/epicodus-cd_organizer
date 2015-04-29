@@ -29,3 +29,9 @@ get('/cds') do
   @cds = Cd.all()
   erb(:cds)
 end
+
+get('/cds/:artist') do
+  @artist = URI.decode(params.fetch('artist'))
+  @titles = Cd.titles_by(@artist)  
+  erb(:cds_list_by_artist)
+end
