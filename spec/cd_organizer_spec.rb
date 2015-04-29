@@ -11,6 +11,7 @@ describe(Cd) do
   it('stores and returns a cd to the collection') do
     cd = Cd.new('Thriller', 'Michael Jackson')
     cd.save()
-    expect(cd.all()).to(eq([cd]))
+    expect(Cd.all()).to(eq([cd]))
   end
+
 end

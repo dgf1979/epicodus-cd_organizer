@@ -1,5 +1,5 @@
 class Cd
-
+  @@all_cds = []
   define_method(:initialize) do |name, artist|
     @name = name
     @artist = artist
@@ -14,11 +14,11 @@ class Cd
   end
 
   define_method(:save) do
-
+    @@all_cds.push(self)
   end
 
-  define_method(:all) do
-
+  define_singleton_method(:all) do
+    @@all_cds
   end
 
 end
