@@ -14,4 +14,10 @@ describe(Cd) do
     expect(Cd.all()).to(eq([cd]))
   end
 
+  it('clears the list of cds') do
+    cd = Cd.new('Thriller', 'Michael Jackson')
+    cd.save()
+    Cd.clear()
+    expect(Cd.all()).to(eq([]))
+  end
 end
