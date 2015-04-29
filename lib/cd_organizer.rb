@@ -13,4 +13,12 @@ class Cd
     @artist
   end
 
+  define_method(:save) do
+
+  end
+
+  define_method(:all) do
+
+  end
+
 end
