@@ -28,7 +28,9 @@ class Cd
   define_singleton_method(:all_artists) do
     artists = []
     @@all_cds.each() do |cd|
-      artists.push(cd.artist())
+      if !artists.include?(cd.artist())
+        artists.push(cd.artist())
+      end
     end
     artists
   end

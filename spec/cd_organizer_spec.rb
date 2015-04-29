@@ -30,6 +30,15 @@ describe(Cd) do
     cd = Cd.new('The White Album', 'The Beatles')
     cd.save()
     expect(Cd.all_artists()[2]).to(eq('The Beatles'))
-
   end
+
+  it('does not return duplicate artists') do
+    Cd.clear()
+    cd = Cd.new('Thriller', 'Michael Jackson')
+    cd.save()
+    cd = Cd.new('Bad', 'Michael Jackson')
+    cd.save()
+    expect(Cd.all_artists().length()).to(eq(1))
+  end
+
 end
