@@ -35,4 +35,8 @@ class Cd
     artists
   end
 
+  define_singleton_method(:titles_by) do |artist|
+    []
+  end
+
 end

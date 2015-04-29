@@ -41,4 +41,14 @@ describe(Cd) do
     expect(Cd.all_artists().length()).to(eq(1))
   end
 
+  it('returns a list of titles by one artist (excluding duplicates)') do
+    Cd.clear()
+    cd = Cd.new('Thriller', 'Michael Jackson')
+    cd.save()
+    cd = Cd.new('Bad', 'Michael Jackson')
+    cd.save()
+    expect(Cd.titles_by("Michael Jackson")[0]).to(eq('Thriller'))
+    expect(Cd.titles_by("Michael Jackson")[1]).to(eq('Bad'))
+  end
+
 end
