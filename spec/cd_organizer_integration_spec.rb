@@ -9,3 +9,14 @@ describe("Sinatra test", {:type => :feature}) do
     expect(page).to have_content('Sinatra OK')
   end
 end
+
+describe("CD Organizer", {:type => :feature}) do
+  it('creates a new CD and returns it in the list of all cds') do
+    visit('/cds/new')
+    fill_in('title', :with => 'Bad')
+    fill_in('artist', :with => 'Michael Jackson')
+    click_button('Add CD')
+    expect(page).to have_content("Michael Jackson")
+    expect(page).to have_content("Bad")
+  end
+end
